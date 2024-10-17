@@ -1,11 +1,18 @@
 Package: mxcc
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Maxwell Control Charts
+Version: 0.0.1
+Authors@R: c(
+    person("Zahid", "Khan", role = "aut"),
+    person("Zsolt T.","Kosztyan",email="kosztyan.zsolt@gtk.uni-pannon.hu", role = c("aut", "cre")))
+Maintainer: Zsolt T. Kosztyan <kosztyan.zsolt@gtk.uni-pannon.hu>
+Description: Computes Control limits, coefficeints of control limits, various performance metrics  and depicts control charts for monitoring Maxwell-distributed quality characteristics.
+License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/kzst/mxcc
+Depends: 
+    R (>= 4.00),
+    chi,
+    stats
+RoxygenNote: 7.3.2
