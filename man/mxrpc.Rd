@@ -47,5 +47,5 @@ Zahid Khan
 \code{\link{mxspc}}
 }
 \examples{
-mxrpc(data=strength_data, alpha = 0.0027, limit = "PCL", chart = "VSQ", summary = FALSE)
+mxrpc(data=strength_data, alpha = 0.0027, limit = "PCL", chart = "VSQ", summary = TRUE)
 }

@@ -6,7 +6,7 @@ Authors@R: c(
     person("Zahid", "Khan", role = "aut"),
     person("Zsolt T.","Kosztyan",email="kosztyan.zsolt@gtk.uni-pannon.hu", role = c("aut", "cre")))
 Maintainer: Zsolt T. Kosztyan <kosztyan.zsolt@gtk.uni-pannon.hu>
-Description: Computes Control limits, coefficeints of control limits, various performance metrics  and depicts control charts for monitoring Maxwell-distributed quality characteristics.
+Description: Computes Control limits, coefficients of control limits, various performance metrics  and depicts control charts for monitoring Maxwell-distributed quality characteristics.
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true
