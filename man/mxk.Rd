@@ -1,13 +1,13 @@
-\name{mxc}
-\alias{mxc}
+\name{mxk}
+\alias{mxk}
 \title{
- Coefficients Determination for V Chart and VSQ Chart for  Maxwell-Distributed Quality Characteristics
+k -Coefficients Determination for V Chart and VSQ Chart for  Maxwell-Distributed Quality Characteristics
 }
 \description{
-The function \code{mxc} calculates the coefficients for V and VSQ control charts used to monitor the scale parameter of Maxwell-distributed quality characteristics. It computes two coefficients based on the chosen chart type. For the V chart, the function returns \code{L1} and \code{L2}, while for the VSQ chart, it returns \code{P1} and \code{P2}.
+The function \code{mxk} calculates the coefficients for V and VSQ control charts used to monitor the scale parameter of Maxwell-distributed quality characteristics. It computes two coefficients based on the chosen chart type. For the V chart, the function returns \code{L1} and \code{L2}, while for the VSQ chart, it returns \code{P1} and \code{P2}.
 }
 \usage{
-mxc(n = 1, alpha = 0.0027, type = "V")
+mxk(n = 1, alpha = 0.0027, type = "V")
 }
 
 \arguments{
@@ -22,7 +22,7 @@ mxc(n = 1, alpha = 0.0027, type = "V")
 }
 }
 \details{
-The \code{mxc} function calculates the coefficients used in V and VSQ control charts for monitoring the scale parameter of Maxwell-distributed data. The user must specify the sample size \code{n}, the probability of a false alarm \code{alpha}, and the type of chart (\code{"V"} or \code{"VSQ"}). By default, \code{n} is set to 1, and \code{alpha} is set to 0.0027.
+The \code{mxk} function calculates the coefficients used in V and VSQ control charts for monitoring the scale parameter of Maxwell-distributed data. The user must specify the sample size \code{n}, the probability of a false alarm \code{alpha}, and the type of chart (\code{"V"} or \code{"VSQ"}). By default, \code{n} is set to 1, and \code{alpha} is set to 0.0027.
 }
 \value{
 Depending on the \code{type} of chart:
@@ -40,7 +40,7 @@ Shah, F., Khan, Z., Aslam, M. and Kadry, S., 2021. Statistical Development of th
 Zahid Khan
 }
 \examples{
-mxc(n = 4, alpha = 0.0027, type = "VSQ")
+mxk(n = 4, alpha = 0.0027, type = "VSQ")
 }
 
 

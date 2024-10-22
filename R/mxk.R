@@ -12,8 +12,8 @@
 #' @import chi
 #' @import stats
 #' @export
-# Coefficients Determination for V Chart and VSQ Chart
-mxc <- function(n = 1, alpha = 0.0027, type = "V") {
+# k -Coefficients Determination for V Chart and VSQ Chart
+mxk <- function(n = 1, alpha = 0.0027, type = "V") {
 
   # V-chart
   if (type == "V") {
