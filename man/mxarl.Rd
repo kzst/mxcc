@@ -8,11 +8,11 @@ Computation of ARL Curves for V chart and VSQ chart
 It calculates the Average Run Length (ARL) for either the V or VSQ control charts, based on the specified sample size, shift constant, and false alarm probability. The user can choose between the two types of control charts.
 }
 \usage{
-mxarl(n_val = 1, delta = seq(1, 3, length.out = 100), alpha = 0.0027, type = "V")
+mxarl(n = 1, delta = seq(1, 3, length.out = 100), alpha = 0.0027, type = "V")
 }
 
 \arguments{
-  \item{n_val}{
+  \item{n}{
 A numeric vector specifying the sample sizes. Default is \code{1}.
   }
   \item{delta}{
@@ -32,9 +32,9 @@ This function computes the Average Run Length (ARL) for both V and VSQ control c
 A plot showing the ARL curves for the specified sample sizes and shift constants
 }
 \references{
-Hossain, M.P., Omar, M.H. and Riaz, M., 2017. New V control chart for the Maxwell distribution. Journal of Statistical Computation and Simulation, 87(3), pp.594-606. doi:10.1080/00949655.2016.1222391
+Hossain, M.P., Omar, M.H. and Riaz, M. (2017) "New V control chart for the Maxwell distribution". Journal of Statistical Computation and Simulation, 87(3), pp.594-606. <doi:10.1080/00949655.2016.1222391>
 
-Shah, F., Khan, Z., Aslam, M. and Kadry, S., 2021. Statistical Development of the VSQ‐Control Chart for Extreme Data with an Application to the Carbon Fiber Industry. Mathematical Problems in Engineering, 2021(1), p.9766986. doi:10.1155/2021/9766986
+Shah, F., Khan, Z., Aslam, M. and Kadry, S. (2021) "Statistical Development of the VSQ‐Control Chart for Extreme Data with an Application to the Carbon Fiber Industry". Mathematical Problems in Engineering, 2021(1), p.9766986. <doi:10.1155/2021/9766986>
 }
 \author{
 Zahid Khan
@@ -44,5 +44,5 @@ Zahid Khan
 \code{\link{mxpw}}
 }
 \examples{
-mxarl(n_val = c(5,10),  delta = seq(1, 3, length.out = 100), alpha = 0.0027, type = "V")
+mxarl(n= c(5,10),  delta = seq(1, 3, length.out = 100), alpha = 0.0027, type = "V")
 }

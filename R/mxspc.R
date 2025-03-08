@@ -14,19 +14,14 @@
 #' @import stats
 #' @export
 #  V control chart and VSQ control chart for simulated data
-mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, seed = 100, limit = "PCL", chart = "V", summary = FALSE) {
+mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, limit = "PCL", chart = "V", summary = FALSE) {
 
   if (missing(sigma)) {
     stop("You must provide a value for 'sigma'.")
   }
 
-  if (!is.null(seed)) {
-    set.seed(seed)
-  }
-
   x <- rMaxwell(n * m, sigma)
   a <- array(x, dim = c(m, n))
-
   v <- numeric(m)
 
   if (chart == "V") {
@@ -72,7 +67,9 @@ mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, seed = 100, limit = "PCL
 
   y_label <- ifelse(chart == "V", "V", expression(paste(V[SQ])))
 
-  par(mar = c(5, 5, 4, 10) + 0.1)
+  oldpar <- par(no.readonly = TRUE)  # Save current 'par' settings
+  on.exit(par(oldpar))               # Restore 'par' settings upon exit
+  par(mar = c(5, 5, 4, 10) + 0.1)   # Modify 'par'
 
   plot(1:m, v, type = "b", pch = 20, col = "darkgreen", lwd = 2,
        ylim = c(the_LCL * 0.9, the_UCL * 1.1), xlab = "Sample Number",
@@ -101,10 +98,9 @@ mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, seed = 100, limit = "PCL
     cat("Central Line (CL):", round(CL, 4), "\n")
     cat(ifelse(limit == "PCL", "Upper Probability Limit (UPL):", "Upper Control Limit (UCL):"), round(UCL, 4), "\n")
     cat("Sigma value used:", sigma, "\n")
-    cat("Seed used for reproducibility:", seed, "\n")
     cat("Limit Type:", limit, "\n")
     cat("Chart Type:", chart, "\n")
   }
 
-  return(invisible(list(LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sigma = sigma, seed = seed, limit = limit, chart = chart)))
+  return(invisible(list(LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sigma = sigma, limit = limit, chart = chart)))
 }

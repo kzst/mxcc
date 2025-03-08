@@ -65,7 +65,10 @@ mxrpc <- function(data, alpha = 0.0027, limit = "PCL", chart = "V", summary = FA
 
    y_label <- ifelse(chart == "V", "V", expression(paste(V[SQ])))
 
-  par(mar = c(5, 5, 4, 10) + 0.1)
+   oldpar <- par(no.readonly = TRUE)
+   on.exit(par(oldpar))
+   par(mar = c(5, 5, 4, 10) + 0.1)
+
   plot(1:m, v, type = "b", pch = 20, col = "darkgreen", lwd = 2,
        ylim = c(LCL * 0.9, UCL * 1.1), xlab = "Sample Number",
        ylab = y_label, cex.axis = 1.2, cex.main = 1.5, main = "")
