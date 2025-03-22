@@ -7,7 +7,7 @@
 #              University of Pannonia, Hungary                                #
 #              kosztyan.zsolt@gtk.uni-pannon.hu                               #
 #                                                                             #
-# Last modified: October 2024                                                  #
+# Last modified: February 2025                                                  #
 #-----------------------------------------------------------------------------#
 
 #' @export
@@ -53,8 +53,8 @@ mxrpc <- function(data, alpha = 0.0027, limit = "PCL", chart = "V", summary = FA
   } else if (chart == "VSQ") {
     t <- (sqrt(2) / sqrt(3 * n)) * (gamma((3 * n + 1) / 2) / gamma(3 * n / 2))
     if (limit == "PCL") {
-      LCL <- mxk(n, alpha, type = "VSQ")$P1 * (sig / t)
-      UCL <- mxk(n, alpha, type = "VSQ")$P2 * (sig / t)
+      LCL <- mxk(n, alpha, type = "VSQ")$P3 * (sig)
+      UCL <- mxk(n, alpha, type = "VSQ")$P4 * (sig)
       CL <- sig
     } else if (limit == "KCL") {
       LCL <- (1 - (mxm(n, alpha, type = "VSQ") / t) * sqrt(1 - t^2)) * sig
@@ -62,6 +62,8 @@ mxrpc <- function(data, alpha = 0.0027, limit = "PCL", chart = "V", summary = FA
       CL <- sig
     }
   }
+  output<- list(v=v, data=data,LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sig = sig, limit = limit, chart = chart)
+  class(output) <- c("mxrpc", "control.chart")
 
    y_label <- ifelse(chart == "V", "V", expression(paste(V[SQ])))
 
@@ -94,6 +96,6 @@ mxrpc <- function(data, alpha = 0.0027, limit = "PCL", chart = "V", summary = FA
     cat("Chart Type:", chart, "\n")
   }
 
-  return(invisible(list(LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sig = sig, limit = limit, chart = chart)))
+  return(invisible(output))
 }
 

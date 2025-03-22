@@ -7,7 +7,7 @@
 #              University of Pannonia, Hungary                                #
 #              kosztyan.zsolt@gtk.uni-pannon.hu                               #
 #                                                                             #
-# Last modified: October 2024                                                  #
+# Last modified: February 2025                                                  #
 #-----------------------------------------------------------------------------#
 #' @import chi
 #' @import shotGroups
@@ -65,6 +65,10 @@ mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, limit = "PCL", chart = "
   the_LCL <- LCL
   the_UCL <- UCL
 
+  output <- list(v = v, a = a, LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sigma = sigma, limit = limit, chart = chart)
+
+  class(output) <- c("mxspc", "control.chart")
+
   y_label <- ifelse(chart == "V", "V", expression(paste(V[SQ])))
 
   oldpar <- par(no.readonly = TRUE)  # Save current 'par' settings
@@ -102,5 +106,5 @@ mxspc <- function(m = 25, n = 4, alpha = 0.0027, sigma, limit = "PCL", chart = "
     cat("Chart Type:", chart, "\n")
   }
 
-  return(invisible(list(LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sigma = sigma, limit = limit, chart = chart)))
+  return(invisible(output))
 }
