@@ -28,7 +28,7 @@ Shah, F., Khan, Z., Aslam, M. and Kadry, S. (2021) "Statistical Development of t
 
 # Assuming `t1` is an object returned by the mxspc() function
 # Maxwell control chart for simulated data
-t1 <- mxspc(m = 40, n = 3, alpha = 0.0027, sigma = 1.5, limit = "PCL")
-summary(t1)
+t1 <- mxspc(m = 40, n = 3, alpha = 0.0027, sigma = 1.5, limit = "KCL")
+print(summary(t1))
 }
 

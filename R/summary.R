@@ -17,35 +17,38 @@ summary <- function(object, ...) {
 
 #' @export
 summary.mxrpc <- function(object, ...) {
-  cat("Summary of Control Chart Parameters:\n")
-  cat("Subgroup Number (m):", object$m, "\n")
-  cat("Sample Size (n):", object$n, "\n")
-  cat(ifelse(object$limit == "PCL", "Lower Probability Limit (LPL):", "Lower Control Limit (LCL):"), round(object$LCL, 4), "\n")
-  cat("Central Line (CL):", round(object$CL, 4), "\n")
-  cat(ifelse(object$limit == "PCL", "Upper Probability Limit (UPL):", "Upper Control Limit (UCL):"), round(object$UCL, 4), "\n")
-  cat("Estimated Sigma value:", round(object$sig, 4), "\n")
-  cat("Limit Type:", object$limit, "\n")
-  cat("Chart Type:", object$chart, "\n")
-  cat("\nSummary Statistics for Plotting Statistic (V values):\n")
-  print(summary(object$v))
-  cat("\nSummary Statistics for Real Data:\n")
-  print(summary(object$data))
+  out <- list(
+    subgroup.size = object$m,
+    sample.size = object$n,
+    lower.limit = round(object$LCL, 4),
+    central.limit = round(object$CL, 4),
+    upper.limit = round(object$UCL, 4),
+    sigma = round(object$sig, 4),
+    limit.type = object$limit,
+    chart.type = object$chart,
+    plotting.statistic.summary = summary(object$v),
+    data.summary = summary(object$data)
+  )
+ # class(out) <- "summary.mxrpc"
+  invisible(out)
 }
 
 #' @export
 summary.mxspc <- function(object, ...) {
-  cat("Summary of Control Chart Parameters:\n")
-  cat("Subgroup Number (m):", object$m, "\n")
-  cat("Sample Size (n):", object$n, "\n")
-  cat(ifelse(object$limit == "PCL", "Lower Probability Limit (LPL):", "Lower Control Limit (LCL):"), round(object$LCL, 4), "\n")
-  cat("Central Line (CL):", round(object$CL, 4), "\n")
-  cat(ifelse(object$limit == "PCL", "Upper Probability Limit (UPL):", "Upper Control Limit (UCL):"), round(object$UCL, 4), "\n")
-  cat("Estimated Sigma value:", round(object$sig, 4), "\n")
-  cat("Limit Type:", object$limit, "\n")
-  cat("Chart Type:", object$chart, "\n")
-  cat("\nSummary Statistics for Plotting Statistic (V values):\n")
-  print(summary(object$v))
-  cat("\nSummary Statistics for Simulated Data (x values):\n")
-  print(summary(object$a))
+  out <- list(
+    subgroup.size = object$m,
+    sample.size = object$n,
+    lower.limit = round(object$LCL, 4),
+    central.limit = round(object$CL, 4),
+    upper.limit = round(object$UCL, 4),
+    sigma = round(object$sig, 4),
+    limit.type = object$limit,
+    chart.type = object$chart,
+    plotting.statistic.summary = summary(object$v),
+    simulated.data.summary = summary(object$a)
+  )
+  #class(out) <- "summary.mxspc"
+  invisible(out)
 }
+
 
