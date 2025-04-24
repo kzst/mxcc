@@ -63,26 +63,7 @@ mxrpc <- function(data, alpha = 0.0027, limit = "PCL", chart = "V", summary = FA
     }
   }
   output<- list(v=v, data=data,LCL = LCL, CL = CL, UCL = UCL, m = m, n = n, sig = sig, limit = limit, chart = chart)
-  class(output) <- c("mxrpc", "control.chart")
-
-   y_label <- ifelse(chart == "V", "V", expression(paste(V[SQ])))
-
-   oldpar <- par(no.readonly = TRUE)
-   on.exit(par(oldpar))
-   par(mar = c(5, 5, 4, 10) + 0.1)
-
-  plot(1:m, v, type = "b", pch = 20, col = "darkgreen", lwd = 2,
-       ylim = c(LCL * 0.9, UCL * 1.1), xlab = "Sample Number",
-       ylab = y_label, cex.axis = 1.2, cex.main = 1.5, main = "")
-
-  abline(h = LCL, col = "blue", lty = 2, lwd = 2)
-  abline(h = CL, col = "blue", lty = 1, lwd = 2)
-  abline(h = UCL, col = "blue", lty = 2, lwd = 2)
-
-  legend_labels <- if (limit == "PCL") c("LPC", "CL", "UPL", "Plotting Statistic") else c("LCL", "CL", "UCL", "Plotting Statistic")
-  legend("topright", inset = c(-0.45, 0), legend = legend_labels,
-         col = c("blue", "blue", "blue", "darkgreen"), lty = c(2, 1, 2, 1), lwd = 2,
-         pch = c(NA, NA, NA, 20), xpd = TRUE, bty = "n", cex = 0.9)
+  class(output) <- "mxrpc"
 
   if (summary) {
     cat("Summary of Control Chart Parameters:\n")

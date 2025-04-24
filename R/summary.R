@@ -45,6 +45,7 @@ summary.mxspc <- function(object, ...) {
   cat("Chart Type:", object$chart, "\n")
   cat("\nSummary Statistics for Plotting Statistic (V values):\n")
   print(summary(object$v))
-  cat("\nSummary Statistics for Simulated Data (a values):\n")
+  cat("\nSummary Statistics for Simulated Data (x values):\n")
   print(summary(object$a))
 }
+
