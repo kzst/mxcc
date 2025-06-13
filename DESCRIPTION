@@ -1,7 +1,7 @@
 Package: mxcc
 Type: Package
 Title: Maxwell Control Charts
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(
     person("Zahid", "Khan", role = "aut"),
     person("Zsolt T.","Kosztyan",email="kosztyan.zsolt@gtk.uni-pannon.hu", role = c("aut", "cre")))

@@ -29,8 +29,8 @@ summary.mxrpc <- function(object, ...) {
     plotting.statistic.summary = summary(object$v),
     data.summary = summary(object$data)
   )
- # class(out) <- "summary.mxrpc"
-  invisible(out)
+  class(out) <- "summary.mxrpc"
+  out
 }
 
 #' @export
@@ -47,8 +47,7 @@ summary.mxspc <- function(object, ...) {
     plotting.statistic.summary = summary(object$v),
     simulated.data.summary = summary(object$a)
   )
-  #class(out) <- "summary.mxspc"
-  invisible(out)
+  class(out) <- "summary.mxspc"
+  out
 }
-
 
