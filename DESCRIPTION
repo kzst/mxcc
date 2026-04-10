@@ -1,7 +1,7 @@
 Package: mxcc
 Type: Package
 Title: Maxwell Control Charts
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: c(
     person("Zahid", "Khan", role = "aut"),
     person("Zsolt T.","Kosztyan",email="kosztyan.zsolt@gtk.uni-pannon.hu", role = c("aut", "cre")))
@@ -17,4 +17,4 @@ Depends:
     stats,
     shotGroups,
     graphics
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

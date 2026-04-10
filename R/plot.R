@@ -12,12 +12,7 @@
 #-----------------------------------------------------------------------------#
 #Control Chart plots for real (mxrpc) and simulated  (mxspc) data
 
-#' @export
-plot <- function(x, ...) {
-  UseMethod("plot", x)
-}
-
-
+#' @importFrom graphics plot abline legend par
 #' @export
 plot.mxrpc <- function(x, ...) {
   m <- x$m
@@ -53,6 +48,7 @@ plot.mxrpc <- function(x, ...) {
          pch = c(NA, NA, NA, 20), xpd = TRUE, bty = "n", cex = 0.9)
 }
 
+#' @importFrom graphics plot abline legend par
 #' @export
 plot.mxspc <- function(x, ...) {
   # Extracting data from the object

@@ -1,16 +1,14 @@
-\name{print}
-\alias{print}
+\name{print.mxrpc}
 \alias{print.mxrpc}
 \alias{print.mxspc}
 \alias{print.summary.mxrpc}
 \alias{print.summary.mxspc}
 
-
 \title{
-Print Method for Control Chart Objects and Their Summaries
+Print Methods for Control Chart Objects and Their Summaries
 }
 \description{
-Print methods to display key parameters and summaries for control charts generated using \code{mxrpc} and \code{mxspc}, as well as their corresponding summary objects.
+S3 print methods to display key parameters and summaries for control charts generated using \code{mxrpc} and \code{mxspc}, as well as their corresponding summary objects.
 }
 \usage{
 \method{print}{mxrpc}(x, ...)
@@ -21,19 +19,19 @@ Print methods to display key parameters and summaries for control charts generat
 
 \arguments{
  \item{x}{An object of class \code{mxrpc}, \code{mxspc}, \code{summary.mxrpc}, or \code{summary.mxspc}.}
-  \item{...}{Additional arguments (currently not used).}
+ \item{...}{Additional arguments passed to or from other methods.}
 }
 \details{
 These print methods provide structured output for:
   \itemize{
-    \item Control chart parameters: subgroup size, sample size, control limits (LCL, CL, UCL or PCL), estimated sigma, limit type, and chart type.
+    \item Control chart parameters: subgroup number, sample size, control limits (LCL, CL, UCL or PCL), estimated sigma, limit type, and chart type.
     \item Summary statistics for the plotting statistic (e.g., V values).
     \item Summary of either real data (for \code{mxrpc}) or simulated data (for \code{mxspc}).
     \item For summary objects (\code{summary.mxrpc}, \code{summary.mxspc}), control chart parameters and statistical summaries are displayed as formatted data frames.
   }
 }
 \value{
- These functions return their input invisibly after printing the relevant summaries to the console.
+Invisibly returns \code{x} after printing the relevant summaries to the console.
 }
 
 \references{

@@ -11,11 +11,6 @@
 #-----------------------------------------------------------------------------#
 #A Brief Summary of Control Chart Parameters for real (mxrpc) and simulated  (mxspc) data
 #' @export
-summary <- function(object, ...) {
-  UseMethod("summary", object)
-}
-
-#' @export
 summary.mxrpc <- function(object, ...) {
   out <- list(
     subgroup.size = object$m,
@@ -50,4 +45,5 @@ summary.mxspc <- function(object, ...) {
   class(out) <- "summary.mxspc"
   out
 }
+
 

@@ -14,12 +14,6 @@
 # print method for summary.mxrpc and  summary.mxspc objects
 
 #' @export
-print <- function(x, ...) {
-  UseMethod("print", x)
-}
-
-
-#' @export
 print.summary.mxrpc <- function(x, ...) {
   cat("Summary of Real Data Control Chart (mxrpc)\n")
   cat("----------------------------------------------------\n")
@@ -30,7 +24,6 @@ print.summary.mxrpc <- function(x, ...) {
   print(x$data.summary)
   invisible(x)
 }
-
 
 #' @export
 print.summary.mxspc <- function(x, ...) {
@@ -49,9 +42,15 @@ print.mxrpc <- function(x, ...) {
   cat("Summary of Control Chart Parameters:\n")
   cat("Subgroup Number (m):", x$m, "\n")
   cat("Sample Size (n):", x$n, "\n")
-  cat(ifelse(x$limit == "PCL", "Lower Probability Limit (LPL):", "Lower Control Limit (LCL):"), round(x$LCL, 4), "\n")
+  cat(ifelse(x$limit == "PCL",
+             "Lower Probability Limit (LPL):",
+             "Lower Control Limit (LCL):"),
+      round(x$LCL, 4), "\n")
   cat("Central Line (CL):", round(x$CL, 4), "\n")
-  cat(ifelse(x$limit == "PCL", "Upper Probability Limit (UPL):", "Upper Control Limit (UCL):"), round(x$UCL, 4), "\n")
+  cat(ifelse(x$limit == "PCL",
+             "Upper Probability Limit (UPL):",
+             "Upper Control Limit (UCL):"),
+      round(x$UCL, 4), "\n")
   cat("Estimated Sigma value:", round(x$sig, 4), "\n")
   cat("Limit Type:", x$limit, "\n")
   cat("Chart Type:", x$chart, "\n")
@@ -67,9 +66,15 @@ print.mxspc <- function(x, ...) {
   cat("Summary of Control Chart Parameters:\n")
   cat("Subgroup Number (m):", x$m, "\n")
   cat("Sample Size (n):", x$n, "\n")
-  cat(ifelse(x$limit == "PCL", "Lower Probability Limit (LPL):", "Lower Control Limit (LCL):"), round(x$LCL, 4), "\n")
+  cat(ifelse(x$limit == "PCL",
+             "Lower Probability Limit (LPL):",
+             "Lower Control Limit (LCL):"),
+      round(x$LCL, 4), "\n")
   cat("Central Line (CL):", round(x$CL, 4), "\n")
-  cat(ifelse(x$limit == "PCL", "Upper Probability Limit (UPL):", "Upper Control Limit (UCL):"), round(x$UCL, 4), "\n")
+  cat(ifelse(x$limit == "PCL",
+             "Upper Probability Limit (UPL):",
+             "Upper Control Limit (UCL):"),
+      round(x$UCL, 4), "\n")
   cat("Estimated Sigma value:", round(x$sig, 4), "\n")
   cat("Limit Type:", x$limit, "\n")
   cat("Chart Type:", x$chart, "\n")
@@ -79,6 +84,3 @@ print.mxspc <- function(x, ...) {
   print(summary(x$a))
   invisible(x)
 }
-
-
-
